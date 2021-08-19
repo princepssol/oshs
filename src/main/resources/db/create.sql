@@ -1,7 +1,6 @@
 create schema if not exists oshs;
 
 create sequence if not exists oshs.department_seq start 1 increment 1;
-create sequence if not exists oshs.sex_seq start 1 increment 1;
 create sequence if not exists oshs.position_seq start 1 increment 1;
 create sequence if not exists oshs.employee_seq start 1 increment 1;
 
@@ -11,12 +10,6 @@ create table if not exists oshs.department
     parent_id int          not null references oshs.department (id),
     name      varchar(255) not null,
     created   timestamp    not null
-);
-
-create table if not exists oshs.sex
-(
-    id       int          not null primary key default nextval('oshs.sex_seq'),
-    sex_name varchar(255) not null unique
 );
 
 create table if not exists oshs.position
@@ -29,7 +22,7 @@ create table if not exists oshs.employee
 (
     id            int            not null primary key default nextval('oshs.employee_seq'),
     department_id int            not null references oshs.department (id),
-    sex_id        int            not null references oshs.sex (id),
+    sex           varchar(255)   not null,
     position_id   int            not null references oshs.position (id),
     leader        boolean        not null,
     first_name    varchar(255)   not null,
