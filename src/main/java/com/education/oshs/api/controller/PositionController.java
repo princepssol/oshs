@@ -1,6 +1,6 @@
-package com.education.oshs.api;
+package com.education.oshs.api.controller;
 
-import com.education.oshs.api.dto.EmployeeDto;
+import com.education.oshs.api.dto.PositionDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/employee")
-public class EmployeeController {
+@RequestMapping("/position")
+public class PositionController {
 
     @GetMapping
-    public Collection<EmployeeDto> getEmployees() {
+    public Collection<PositionDto> getPositions() {
         return null;
     }
 
     @GetMapping("/{id}")
-    public EmployeeDto getEmployee(@PathVariable Integer id) {
+    public PositionDto getPosition(@PathVariable Integer id) {
         return null;
     }
 }

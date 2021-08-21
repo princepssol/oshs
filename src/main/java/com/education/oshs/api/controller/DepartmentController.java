@@ -1,4 +1,4 @@
-package com.education.oshs.api;
+package com.education.oshs.api.controller;
 
 import com.education.oshs.api.dto.DepartmentDto;
 import org.springframework.web.bind.annotation.GetMapping;
