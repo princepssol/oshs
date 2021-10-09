@@ -1,6 +1,8 @@
 package com.education.oshs.exception;
 
+import com.education.oshs.api.mapper.DepartmentMapper;
 import com.education.oshs.api.response.Response;
+import com.education.oshs.model.Department;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

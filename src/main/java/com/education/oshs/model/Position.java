@@ -14,7 +14,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Position {
+public class Position implements EntityMarker {
     @Id
     @Column
     @SequenceGenerator(name = "positionGenerator", sequenceName = "position_seq")
@@ -24,7 +24,7 @@ public class Position {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "position")
+    @OneToMany(mappedBy = "position", fetch = FetchType.LAZY)
     private Collection<Employee> employees;
 
     @Override

@@ -14,7 +14,7 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class Employee implements EntityMarker {
     @Id
     @Column
     @SequenceGenerator(name = "employeeGenerator", sequenceName = "employee_seq")
@@ -49,13 +49,13 @@ public class Employee {
     private String email;
 
     @Column(name = "money_ru")
-    private String money;
+    private Double money;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "department_id")
     private Department department;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "position_id")
     private Position position;
 

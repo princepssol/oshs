@@ -17,21 +17,21 @@ import java.util.Objects;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Department {
+public class Department implements EntityMarker {
     @Id
     @Column
     @SequenceGenerator(name = "departmentGenerator", sequenceName = "department_seq")
     @GeneratedValue(generator = "departmentGenerator", strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Department parent;
 
-    @OneToMany(mappedBy = "parent")
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY)
     private Collection<Department> children;
 
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
     private List<Employee> employees;
 
     @Column
