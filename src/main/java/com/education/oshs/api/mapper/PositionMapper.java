@@ -16,18 +16,6 @@ public abstract class PositionMapper implements EntityMapper<Position, PositionD
 
     @Override
     @Mapping(target = "employees", ignore = true)
+    @Mapping(target = "id", ignore = true)
     public abstract Position toEntity(PositionDto dto);
-
-    @Override
-    @Mapping(target = "employees", expression = "java(toEmployees(entity.getEmployees()))")
-    public abstract PositionDto fromEntity(Position entity);
-
-    public Map<Integer, String> toEmployees(Collection<Employee> employees) {
-        return employees.stream()
-                .collect(Collectors.toMap(Employee::getId,
-                        employee -> String.join(" ",
-                                employee.getFirstName(),
-                                employee.getSecondName(),
-                                employee.getLastName())));
-    }
 }

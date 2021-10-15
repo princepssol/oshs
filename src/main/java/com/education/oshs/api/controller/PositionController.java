@@ -1,5 +1,6 @@
 package com.education.oshs.api.controller;
 
+import com.education.oshs.api.dto.EmployeeDto;
 import com.education.oshs.api.dto.PositionDto;
 import com.education.oshs.api.mapper.EntityMapper;
 import com.education.oshs.api.mapper.PositionMapper;
@@ -27,6 +28,11 @@ public class PositionController {
 
     @GetMapping("/{id}")
     public PositionDto getPosition(@PathVariable Integer id) {
+        return null;
+    }
+
+    @GetMapping("/{id}/employees")
+    public Collection<EmployeeDto> getEmployees(@PathVariable Integer id) {
         return null;
     }
 }

@@ -25,6 +25,11 @@ public class EmployeeController {
         return null;
     }
 
+    @GetMapping("/fired")
+    public Collection<EmployeeDto> getFired() {
+        return null;
+    }
+
     @GetMapping("/{id}")
     public EmployeeDto getEmployee(@PathVariable Integer id) {
         return null;

@@ -4,7 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -33,14 +33,14 @@ public class Employee implements EntityMarker {
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "birth_date")
-    private Date birthDate;
+    @Column(name = "birth_date", columnDefinition = "TIMESTAMP")
+    private LocalDate birthDate;
 
-    @Column(name = "work_date")
-    private Date workDate;
+    @Column(name = "work_date", columnDefinition = "TIMESTAMP")
+    private LocalDate workDate;
 
-    @Column(name = "fired_date")
-    private Date firedDate;
+    @Column(name = "fired_date", columnDefinition = "TIMESTAMP")
+    private LocalDate firedDate;
 
     @Column
     private String phone;

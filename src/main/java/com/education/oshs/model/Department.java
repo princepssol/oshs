@@ -6,6 +6,8 @@ import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
@@ -37,9 +39,9 @@ public class Department implements EntityMarker {
     @Column
     private String name;
 
-    @Column
+    @Column(columnDefinition = "TIMESTAMP")
     @CreatedDate
-    private Date created;
+    private LocalDate created;
 
     @Override
     public boolean equals(Object o) {
