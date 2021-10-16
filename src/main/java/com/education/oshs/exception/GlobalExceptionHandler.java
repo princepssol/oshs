@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Response> handleException(Exception e) {
-        return new ResponseEntity<>(new Response(e.toString()), INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(new Response(String.join(": ", e.getClass().getSimpleName(), e.getMessage())), INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(ProjectException.class)

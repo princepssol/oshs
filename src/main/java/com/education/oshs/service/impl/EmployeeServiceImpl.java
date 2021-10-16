@@ -1,11 +1,14 @@
 package com.education.oshs.service.impl;
 
+import com.education.oshs.exception.ProjectException;
 import com.education.oshs.model.Employee;
 import com.education.oshs.repository.EmployeeRepository;
 import com.education.oshs.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
+
+import static com.education.oshs.exception.ProjectException.*;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -22,6 +25,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getLeaderByDepartment(Integer id) {
-        return employeeRepository.findEmployeeByDepartmentIdAndAndLeader(id, true);
+        return employeeRepository.findEmployeeByDepartmentIdAndLeader(id, true)
+                .orElseThrow(() -> new ProjectException(String.format(NOT_EXISTS, id)));
     }
 }
