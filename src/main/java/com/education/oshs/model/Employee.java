@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.PositiveOrZero;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -49,6 +50,7 @@ public class Employee implements EntityMarker {
     private String email;
 
     @Column(name = "money_ru")
+    @PositiveOrZero
     private Double money;
 
     @ManyToOne(fetch = FetchType.LAZY)
