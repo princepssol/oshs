@@ -43,4 +43,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee getEmployee(Integer id) {
         return employeeRepository.findById(id).orElseThrow(() -> new ProjectException(String.format(NOT_EXISTS, id)));
     }
+
+    @Override
+    public Collection<Employee> getEmployeesByPosition(Integer id) {
+        return employeeRepository.findEmployeesByPositionId(id);
+    }
 }

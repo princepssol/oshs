@@ -15,4 +15,6 @@ public interface EmployeeService {
     Collection<Employee> getFired();
 
     Employee getEmployee(Integer id);
+
+    Collection<Employee> getEmployeesByPosition(Integer id);
 }
