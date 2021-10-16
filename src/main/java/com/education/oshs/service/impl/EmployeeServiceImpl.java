@@ -28,4 +28,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employeeRepository.findEmployeeByDepartmentIdAndLeader(id, true)
                 .orElseThrow(() -> new ProjectException(String.format(NOT_EXISTS, id)));
     }
+
+    @Override
+    public Collection<Employee> getEmployees() {
+        return employeeRepository.findAll();
+    }
+
+    @Override
+    public Collection<Employee> getFired() {
+        return employeeRepository.findEmployeesByFiredDateIsNull();
+    }
+
+    @Override
+    public Employee getEmployee(Integer id) {
+        return employeeRepository.findById(id).orElseThrow(() -> new ProjectException(String.format(NOT_EXISTS, id)));
+    }
 }
